@@ -1,13 +1,14 @@
 In this lesson, you will use everything you have seen so far to plan the perfect vacation around the world!
 
 To get started, import some helper functions:
-
+```
 from helper_functions import print_llm_response, get_llm_response, display_table
 from IPython.display import Markdown
 import csv
+```
 Reading travel itineraries from a CSV file
 First, define a new function that reads data stored in a CSV file and returns it as a dictionary variable:
-
+```
 def read_csv(file):
     f = open(file, "r")
     
@@ -18,16 +19,19 @@ def read_csv(file):
     f.close()
     
     return data
+```
 Next, load itineraries from itinerary.csv using the function you just defined (notice how much less code this is!) and then display the table of itineraries:
 
+```
 # Read the itinerary.csv file
 itinerary = read_csv("itinerary.csv")
 ​
 # Display the itinerary
 display_table(itinerary)
+```
 Reading restaurant information from food journal entries
 Now create a new function called read_journal that reads in the contents of a plain text file with '.txt' extension and stores it into a string variable:
-
+```
 # The function called 'read_journal'
 def read_journal(journal_file):
     f = open(journal_file, "r")
@@ -36,6 +40,7 @@ def read_journal(journal_file):
 ​
     # Return the journal content
     return journal
+```
 Note that you used this function in an earlier lesson - now you know how it works!
 
 You can now use the read_journal function to read in a food journal file - let's start with Sydney:
