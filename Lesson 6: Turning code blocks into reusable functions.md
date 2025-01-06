@@ -188,7 +188,7 @@ print(meters_to_feet(0.7)) # Should print 2.29659
 Write a function that takes in a filename as a parameter, uses an LLM to create a three bullet point summary, and returns the bullets as a string.
 
 Use the chatbot for help when you need it!
-``bash
+```bash
 from helper_functions import get_llm_response
 ​
 def create_bullet_points(file):
