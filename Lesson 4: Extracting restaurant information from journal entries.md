@@ -94,7 +94,7 @@ Notice how the output now only contains the restaurants and names of dishes.
 
 The first line indicates what information each row contains, in this case the name of the restaurant, then a comma, then the name of the dish.
 
-###Looping through multiple journals
+### Looping through multiple journals
 In this section, you'll iterate through all the journal entries using a for loop and extract the restaurants and best dishes from each file:
 ```bash
 files = ["cape_town.txt", "istanbul.txt", "new_york.txt", "paris.txt", 
