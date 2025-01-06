@@ -67,7 +67,7 @@ Extracting restaurants and their best dishes
 Next, you'll modify the prompt to extract the information from the text and list it out, instead of highlighting it.
 
 Here is the modified prompt with the new instructions to save the data in CSV, or Comma Separated Value format:
-
+```bash
 prompt = f"""Please extract a comprehensive list of the restaurants 
 and their respective best dishes mentioned in the following journal entry. 
 Ensure that each restaurant name is accurately identified and listed. 
@@ -85,15 +85,18 @@ Journal entry:
 """
 ​
 restaurants_csv_ready_string = get_llm_response(prompt)
-​
+​```
+---
+```bash
 print(restaurants_csv_ready_string)
+```
 Notice how the output now only contains the restaurants and names of dishes.
 
 The first line indicates what information each row contains, in this case the name of the restaurant, then a comma, then the name of the dish.
 
-Looping through multiple journals
+###Looping through multiple journals
 In this section, you'll iterate through all the journal entries using a for loop and extract the restaurants and best dishes from each file:
-
+```bash
 files = ["cape_town.txt", "istanbul.txt", "new_york.txt", "paris.txt", 
           "rio_de_janeiro.txt", "sydney.txt", "tokyo.txt"]
 ​
@@ -123,40 +126,43 @@ for file in files:
     print(file)
     print_llm_response(prompt)
     print("") # Prints a blank line!
-Try for yourself!
+```
+### Try for yourself!
 Try modifying the prompt inside the for loop above to extract different information. For example
 
 Extract the restaurant name and the neighborhood it is located in
 Extract each dish and it's main ingredient
-Writing Files
+
+### Writing Files
 Here, you will learn how you can save files with the data you have created using Python and LLM.
 
 As a reminder, print the html_response variable to see it's contents:
 
 display(HTML(html_response))
 Next, save the data in html_response to a file:
-
+```bash
 f = open("highlighted_text.html", 'w') 
 f.write(html_response) 
 f.close()
+```
 Note that you use 'w' instead of 'r' and f.write instead of f.read here, in contrast to when you read in a file.
 
 🤖 Use the Chatbot:
 
 Explain this code line by line:
-
+```bash
 f = open("highlighted_text.html", 'w')
 f.write(html_response)
 f.close()
-
+```
 You can use the following button to download the file you just wrote above.
 
 Make sure to provide the right file name: 'highlighted_text.html' when asked!
 download_file()
-Extra practice
-Exercise 1
+#### Extra practice
+### Exercise 1
 Modify the prompt below to create an HTML file that highlights all the restaurant names in green and the neighborhoods in pink in the Sydney journal entry.
-
+```bash
 journal_sydney = read_journal("sydney.txt") 
 ​
 # Modify the prompt below
@@ -173,13 +179,16 @@ Journal entry:
 ​
 html_sydney = get_llm_response(prompt)
 display(HTML(html_sydney))
-Exercise 2
+```
+### Exercise 2
 Modify the code below to save the output of the LLM to an HTML file. The file should be called highlighted_sydney.html.
 
-​
+​```bash
 f = open() 
 f.write() 
 f.close()
+```
 You can then download the file, if you'd like!
-
+```bash
 download_file()
+```
