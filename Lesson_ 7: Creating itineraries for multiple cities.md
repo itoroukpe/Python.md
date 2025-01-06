@@ -99,10 +99,10 @@ The Lord Nelson Brewery Hotel,Roast Lamb
 Vic's Meat Market,BBQ Beef Brisket
 Bennelong,Sydney Rock Oysters
 Read in restaurant information from Sydney.csv file that was created for you and display it using the display_table function:
-```bash
+
 # Use the read_csv function
 sydney_restaurants = read_csv("Sydney.csv")
-```​
+​
 
 ```bash
 display_table(sydney_restaurants)
