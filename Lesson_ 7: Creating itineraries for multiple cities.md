@@ -103,9 +103,8 @@ Read in restaurant information from Sydney.csv file that was created for you and
 ```bash
 # Use the read_csv function
 sydney_restaurants = read_csv("Sydney.csv")
-​```
+​
 
-```bash
 display_table(sydney_restaurants)
 ```
 Restaurant	Specialty
