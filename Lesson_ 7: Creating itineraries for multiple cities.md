@@ -2,14 +2,14 @@
 In this lesson, you will use everything you have seen so far to plan the perfect vacation around the world!
 
 To get started, import some helper functions:
-```
+```bash
 from helper_functions import print_llm_response, get_llm_response, display_table
 from IPython.display import Markdown
 import csv
 ```
 Reading travel itineraries from a CSV file
 First, define a new function that reads data stored in a CSV file and returns it as a dictionary variable:
-```
+```bash
 def read_csv(file):
     f = open(file, "r")
     
@@ -22,15 +22,16 @@ def read_csv(file):
     return data
 ```
 Next, load itineraries from itinerary.csv using the function you just defined (notice how much less code this is!) and then display the table of itineraries:
-```
+```bash
 # Read the itinerary.csv file
 itinerary = read_csv("itinerary.csv")
 ​```
-```
+```bash
 # Display the itinerary
 display_table(itinerary)
 ```
-```
+
+```bash
 Arrival	Departure	City	Country
 July-01	July-08	New York	USA
 July-09	July-16	Rio de Janeiro	Brazil
@@ -42,7 +43,7 @@ August-18	August-25	Sydney	Australia
 ```
 Reading restaurant information from food journal entries
 Now create a new function called read_journal that reads in the contents of a plain text file with '.txt' extension and stores it into a string variable:
-```
+```bash
 # The function called 'read_journal'
 def read_journal(journal_file):
     f = open(journal_file, "r")
@@ -55,7 +56,7 @@ def read_journal(journal_file):
 Note that you used this function in an earlier lesson - now you know how it works!
 
 You can now use the read_journal function to read in a food journal file - let's start with Sydney:
-```
+```bash
 journal = read_journal("sydney.txt")
 ​
 print(journal)
@@ -72,7 +73,7 @@ To round off my exploration of local cuisine, I visited Bennelong, located withi
 
 
 Write a prompt that extracts restaurant and specialty dish information from the journal text and stores it in CSV format:
-```
+```bash
 # Write the prompt
 prompt = f"""Please extract a comprehensive list of the restaurants 
 and their respective specialties mentioned in the following journal entry. 
@@ -83,7 +84,6 @@ Exclude the "```csv" declaration, don't add spaces after the comma, include colu
 Format:
 Restaurant, Specialty
 Res_1, Sp_1
-...
 ​
 Journal entry:
 {journal}
@@ -99,11 +99,14 @@ The Lord Nelson Brewery Hotel,Roast Lamb
 Vic's Meat Market,BBQ Beef Brisket
 Bennelong,Sydney Rock Oysters
 Read in restaurant information from Sydney.csv file that was created for you and display it using the display_table function:
-```
+```bash
 # Use the read_csv function
 sydney_restaurants = read_csv("Sydney.csv")
 ```​
+
+```bash
 display_table(sydney_restaurants)
+```
 Restaurant	Specialty
 Saint Peter	Murray Cod
 Billy Kwong	Crispy Skin Duck with Davidson’s Plum Sauce
@@ -116,12 +119,12 @@ Creating detailed itineraries with restaurant suggestions
 In this section, you'll combine the data in the journal and the itinerary to create a detailed plan for your visit to Sydney.
 
 To access Sydney's data in the itinerary list, you have to use index '6' since Sydney is the seventh trip destination.
-```
+```bash
 # Select Sydney from the 'itinerary' list
 trip_stop = itinerary[6]
 ```
 Next, store all the information from that trip_stop, as well as the restaurant information you read in above, in separate variables:
-```
+```bash
 city = trip_stop["City"]
 country = trip_stop["Country"]
 arrival = trip_stop["Arrival"]
@@ -129,7 +132,7 @@ departure = trip_stop["Departure"]
 restaurants = sydney_restaurants
 ```
 Pass all of this information in a detailed prompt to an LLM to create a detailed itinerary:
-```
+```bash
 # Write the prompt
 prompt = f"""I will visit {city}, {country} from {arrival} to {departure}. 
 Create a daily itinerary with detailed activities. 
@@ -147,7 +150,7 @@ Restaurant dictionary:
 response = get_llm_response(prompt)
 ```
 
-```
+```bash
 # Print the LLM response in Markdown format
 display(Markdown(response))
 ```
@@ -209,11 +212,12 @@ Enjoy your trip to Sydney!
 
 Create detailed itineraries for all the cities in your trip
 You'll use a 'for' loop to iterate over all the cities in the itinerary list and create a detailed itinerary for each location:
-```
+```bash
 # Create an empty dictionary to store the itinerary for each destination
 detailed_itinerary = {}
 ​```
-```
+
+```bash
  # Use the 'for' loop over the 'itinerary' list   
 for trip_stop in itinerary:
     city = trip_stop["City"]
@@ -241,7 +245,7 @@ for trip_stop in itinerary:
 ```
 You can now access the detailed itinerary for any city by passing in the city name as the key to the detailed_itinerary dictionary:
 
-```
+```bash
 # Print in Markdown format
 display(Markdown(detailed_itinerary["Tokyo"]))
 ```
@@ -257,7 +261,7 @@ Paris
 Rio de Janeiro
 Sydney
 Tokyo
-```
+```bash
 # Update the next line of code to view a different city
 display(Markdown(detailed_itinerary["Cape Town"]))
 ```
